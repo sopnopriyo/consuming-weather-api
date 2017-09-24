@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="weatherapp:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="WeatherApplication.war">
+      <element id="artifact" artifact-name="weatherapp:war exploded" />
+    </root>
+  </artifact>
+</component>
