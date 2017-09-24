@@ -35,6 +35,7 @@ public class AppController {
     @Autowired
     CityWeatherRecordService cityWeatherRecordService;
 
+    //this is the homepage with a search box to search for the city
     @RequestMapping(value = {"/","/weather"}, method = RequestMethod.GET)
     public String list(ModelMap model) {
         City city = new City();
@@ -43,6 +44,8 @@ public class AppController {
         return "weather";
     }
 
+    //this method will accept a form object and we will pass the cityName to weather third party API
+    //if user type invalid city name we will send error message
     @RequestMapping(value = {"/list"}, method = RequestMethod.POST)
     public String search(ModelMap model, @Valid City cityForm, BindingResult result) {
 
@@ -121,6 +124,7 @@ public class AppController {
         return "weather-list";
     }
 
+    // we will the weatherRecord based on the id
 	@RequestMapping(value = { "/delete-weather-record-{id}" }, method = RequestMethod.GET)
 	public String deleteUser(@PathVariable Integer id) {
 		cityWeatherRecordService.deleteById(id);
